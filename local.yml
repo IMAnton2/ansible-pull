@@ -6,6 +6,7 @@
     git:
       repo: 'https://github.com/geerlingguy/ansible-role-apache.git'
       dest: ~/
+    become: false
   - name: install apache                                                                                                                                                                                           
     include_role:                                                                                                                                                                                                  
       name: ansible-role-apache                                                                                                                                                                                    
