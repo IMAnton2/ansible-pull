@@ -1,6 +1,11 @@
 ---
 - hosts: local
-  become: true                                                                                                                                                                                                     
+  become: true
+  dependencies:
+    - src: https://github.com/geerlingguy/ansible-role-apache.git
+      scm: git
+      version: master
+      name: ansible-role-apache
   tasks:                                                                                                                                                                                                           
   - name: install apache                                                                                                                                                                                           
     include_role:                                                                                                                                                                                                  
