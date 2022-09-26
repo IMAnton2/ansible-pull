@@ -5,7 +5,7 @@
   - name: get role
     git:
       repo: 'https://github.com/geerlingguy/ansible-role-apache.git'
-      dest: ~/ansible-role-apache
+      dest: ~/.ansible/roles/ansible-role-apache
     become: false
   - name: install apache                                                                                                                                                                                           
     include_role:                                                                                                                                                                                                  
