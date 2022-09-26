@@ -1,10 +1,11 @@
 ---
 - hosts: local
   become: true
-  git:
-  repo: 'https://github.com/geerlingguy/ansible-role-apache.git'
-  dest: ~/
-  tasks:                                                                                                                                                                                                           
+  tasks:
+  - name: get role
+    git:
+      repo: 'https://github.com/geerlingguy/ansible-role-apache.git'
+      dest: ~/
   - name: install apache                                                                                                                                                                                           
     include_role:                                                                                                                                                                                                  
       name: ansible-role-apache                                                                                                                                                                                    
