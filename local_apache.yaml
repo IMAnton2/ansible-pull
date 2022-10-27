@@ -1,0 +1,23 @@
+---
+- hosts: local
+  become: true
+  dependencies:
+    - src: https://github.com/geerlingguy/ansible-role-apache.git
+      scm: git
+      version: master
+      name: ansible-role-apache                                                                                                                                                                                                      
+  tasks:                                                                                                                                                                                                           
+  - name: install apache                                                                                                                                                                                           
+    include_role:                                                                                                                                                                                                  
+      name: ansible-role-apache                                                                                                                                                                                    
+  - name: start httpd service                                                                                                                                                                                      
+    service:                                                                                                                                                                                                       
+      name: 'httpd'                                                                                                                                                                                                
+      state: started                                                                                                                                                                                               
+  - name: add content to site                                                                                                                                                                                      
+    blockinfile:                                                                                                                                                                                                   
+      path: /var/www/html/index.html                                                                                                                                                                               
+      create: true                                                                                                                                                                                                 
+      block: |                                                                                                                                                                                                     
+        <h1>Hello World from "{{ ansible_hostname }}"<h1>                                                                                                                                                          
+...
